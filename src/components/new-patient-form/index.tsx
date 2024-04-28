@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import * as Form from '@radix-ui/react-form';
-import { Button, Card, Flex, RadioGroup, TextField, Theme } from '@radix-ui/themes';
+import { Button, Card, Flex, RadioGroup, TextField, Theme, Text } from '@radix-ui/themes';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase'
 // Old patient: name, contact no. 
@@ -27,21 +27,15 @@ const NewPatientForm = () => {
 
   const [openDialog, setOpenDialog] = useState(false)
 
-  useEffect(() => {
-    setOpenDialog(true)
-
-
-  }, [])
-
 
   const submitForm = async (e: any) => {
     const data = Object.fromEntries(new FormData(e.currentTarget))
 
-    setOpenDialog(true)
     e.preventDefault()
     // alert('asdas')
+    setOpenDialog(true)
     await addDoc(
-      collection(db, 'items'),
+      collection(db, 'patients'),
       data
     )
   }
@@ -52,14 +46,16 @@ const NewPatientForm = () => {
         <AlertDialog.Portal>
           <Theme>
             <AlertDialog.Overlay className='AlertDialogOverlay' />
-            <AlertDialog.Content className='fixed top-0 right-0'>
+            <AlertDialog.Content className='fixed top-[50%] right-[50%] translate-x-[50%] -translate-y-[50%]'>
               <Card>
-                {/* <AlertDialog.Title /> */}
-                <AlertDialog.Description>
-                  TESTETSTATSDAASSSS
-                </AlertDialog.Description>
-                {/* <AlertDialog.Cancel /> */}
-                {/* <AlertDialog.Action /> */}
+                <Flex direction={'column'} gap={'5'}>
+                  <AlertDialog.Description asChild>
+                    <Text>Form succesfully submitted. </Text>
+                  </AlertDialog.Description>
+                  <AlertDialog.Cancel asChild className=' ml-auto'>
+                    <Button>Close</Button>
+                  </AlertDialog.Cancel>
+                </Flex>
               </Card>
             </AlertDialog.Content>
           </Theme>
@@ -70,11 +66,11 @@ const NewPatientForm = () => {
           <Form.Field className="FormField" name="name">
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <Form.Label className="FormLabel">Name</Form.Label>
-              <Form.Message className="FormMessage" match="valueMissing">
-                Please enter your Name
+              <Form.Message className="FormMessage" match="valueMissing" asChild>
+                <Text>Please enter your Name</Text>
               </Form.Message>
-              <Form.Message className="FormMessage" match="typeMismatch">
-                Please provide a valid Name
+              <Form.Message className="FormMessage" match="typeMismatch" asChild>
+                <Text>Please provide a valid Name</Text>
               </Form.Message>
             </div>
             <Form.Control asChild>
@@ -85,11 +81,11 @@ const NewPatientForm = () => {
           <Form.Field className={` FormField`} name="age">
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <Form.Label className="FormLabel">Age</Form.Label>
-              <Form.Message className="FormMessage" match="valueMissing">
-                Please enter your Age
+              <Form.Message className="FormMessage" match="valueMissing" asChild>
+                <Text>Please enter your Age</Text>
               </Form.Message>
-              <Form.Message className="FormMessage" match="typeMismatch">
-                Please provide a valid Age
+              <Form.Message className="FormMessage" match="typeMismatch" asChild>
+                <Text>Please provide a valid Age</Text>
               </Form.Message>
             </div>
             <Form.Control asChild>
@@ -100,15 +96,12 @@ const NewPatientForm = () => {
           <Form.Field className={`FormField`} name="sex">
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <Form.Label className="FormLabel">Sex</Form.Label>
-              <Form.Message className="FormMessage" match="valueMissing">
-                Please enter your sex
-              </Form.Message>
             </div>
             <Form.Control asChild>
               <RadioGroup.Root size="1" defaultValue="1" name='sex'>
                 <Flex direction={'row'} gap={'4'}>
-                  <RadioGroup.Item value="1" >Male</RadioGroup.Item>
-                  <RadioGroup.Item value="2" >Female</RadioGroup.Item>
+                  <RadioGroup.Item value="1" ><Text>Male</Text></RadioGroup.Item>
+                  <RadioGroup.Item value="2" ><Text>Female</Text></RadioGroup.Item>
                 </Flex>
               </RadioGroup.Root>
             </Form.Control>
@@ -118,10 +111,10 @@ const NewPatientForm = () => {
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <Form.Label className="FormLabel">Address</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing">
-                Please enter your address
+                <Text>Please enter your address</Text>
               </Form.Message>
               <Form.Message className="FormMessage" match="typeMismatch">
-                Please provide a valid address
+                <Text>Please provide a valid address</Text>
               </Form.Message>
             </div>
             <Form.Control asChild>
@@ -133,7 +126,7 @@ const NewPatientForm = () => {
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
               <Form.Label className="FormLabel">Contact No.</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing">
-                Please enter your contact no.
+                <Text>Please enter your contact no.</Text>
               </Form.Message>
               <Form.Message className="FormMessage" match={
                 (value, formData): boolean => {
@@ -141,7 +134,7 @@ const NewPatientForm = () => {
                   return value.match(regex) ? false : true
                 }
               }>
-                Please provide a valid contact no.
+                <Text>Please provide a valid contact no.</Text>
               </Form.Message>
             </div>
             <Form.Control asChild>

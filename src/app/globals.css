@@ -1,19 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* @import '@radix-ui/colors/black-alpha.css';
-@import '@radix-ui/colors/mauve.css';
-@import '@radix-ui/colors/violet.css'; */
-/* @import '@radix-ui/themes/layout/tokens.css';
-@import '@radix-ui/themes/layout/components.css';
-@import '@radix-ui/themes/layout/utilities.css';
-@import '@radix-ui/themes/layout.css'; */
 
 @import '@radix-ui/colors/black-alpha.css';
 @import '@radix-ui/colors/violet.css';
 @import '@radix-ui/colors/mauve.css';
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -25,9 +18,9 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-}
+} */
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -35,7 +28,7 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-}
+} */
 
 @layer utilities {
   .text-balance {
@@ -57,12 +50,6 @@ button {
 
 
 /* reset */
-input,
-textarea,
-button {
-  all: unset;
-  box-sizing: border-box;
-}
 
 .FormRoot {
   width: 260px;

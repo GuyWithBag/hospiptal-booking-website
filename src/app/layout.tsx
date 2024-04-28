@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import '@radix-ui/themes/styles.css';
 import "./globals.css";
 // import "./responsive.css"
-import { Box, Theme, ThemePanel } from '@radix-ui/themes';
+import { Theme, ThemePanel } from '@radix-ui/themes';
 import Navbar from "@/components/navbar";
 import '@radix-ui/themes/layout/tokens.css';
 import '@radix-ui/themes/layout/components.css';
@@ -15,7 +15,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Guinmapang-Neri Medical Clinic and Laboratory",
-  description: "One of the best hospitals in the Philippines. ",
+  description: "Your 1# trusted Medical Clinic. ",
 };
 
 export default function RootLayout({
