@@ -79,3 +79,19 @@ button {
   inset: 0;
   animation: overlayShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+.dialog-position {
+  /* fixed top-[50%] right-[50%] translate-x-[50%] -translate-y-[50%]  */
+  position: fixed;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+}
+
+.dialog-position-absolute {
+  /* fixed top-[50%] right-[50%] translate-x-[50%] -translate-y-[50%]  */
+  position: absolute  ;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, -50%);
+}
