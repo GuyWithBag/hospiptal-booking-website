@@ -50,26 +50,24 @@ const ServicesForm = ({ open, onOpenChange, onValueChange }: Props) => {
                             <Select.Viewport>
                                 <Card className='fixed top-[40%] right-[29%]'>
                                     <Select.Group>
-                                        <Flex direction={'column'} justify={'start'} align={'start'}>
-                                            <Select.Item value='Blood Typing' asChild><Button variant='ghost'>Blood Typing</Button></Select.Item>
-                                            <Select.Item value='CBC with Platelet' asChild><Button variant='ghost'>CBC with Platelet</Button></Select.Item>
-                                            <Select.Item value='Lipid Profile' asChild><Button variant='ghost'>Lipid Profile</Button></Select.Item>
-                                            <Select.Item value='Fecalysis' asChild><Button variant='ghost'>Fecalysis</Button></Select.Item>
-                                            <Select.Item value='Urinalysis' asChild><Button variant='ghost'>Urinalysis</Button></Select.Item>
-                                            <Select.Item value='Fasting Blood Sugar' asChild><Button variant='ghost'>Fasting Blood Sugar</Button></Select.Item>
-                                            <Select.Item value='Random Blood Sugar' asChild><Button variant='ghost'>Random Blood Sugar</Button></Select.Item>
-                                            <Select.Item value='Sodium, Potassium, Chloride, Calcium' asChild><Button variant='ghost'>Sodium, Potassium, Chloride, Calcium</Button></Select.Item>
-                                            <Select.Item value='Sodium and Potassium' asChild><Button variant='ghost'>Sodium and Potassium</Button></Select.Item>
-                                            <Select.Item value='Calcium' asChild><Button variant='ghost'>Calcium</Button></Select.Item>
-                                            <Select.Item value='Chloride' asChild><Button variant='ghost'>Chloride</Button></Select.Item>
-                                            <Select.Item value='Lithium' asChild><Button variant='ghost'>Lithium</Button></Select.Item>
-                                            <Select.Item value='SGPT' asChild><Button variant='ghost'>SGPT</Button></Select.Item>
-                                            <Select.Item value='SGOT' asChild><Button variant='ghost'>SGOT</Button></Select.Item>
-                                            <Select.Item value='HBA1C' asChild><Button variant='ghost'>HBA1C</Button></Select.Item>
-                                            <Select.Item value='Serum Uric Acid' asChild><Button variant='ghost'>Serum Uric Acid</Button></Select.Item>
-                                            <Select.Item value='Creatinine' asChild><Button variant='ghost'>Creatinine</Button></Select.Item>
-                                            <Select.Item value='Anti-Hav IgG Ig' asChild><Button variant='ghost'>Anti-Hav IgG Ig</Button></Select.Item>
-                                        </Flex>
+                                        <Select.Item value='Blood Typing' asChild><Button variant='ghost'>Blood Typing</Button></Select.Item>
+                                        <Select.Item value='CBC with Platelet' asChild><Button variant='ghost'>CBC with Platelet</Button></Select.Item>
+                                        <Select.Item value='Lipid Profile' asChild><Button variant='ghost'>Lipid Profile</Button></Select.Item>
+                                        <Select.Item value='Fecalysis' asChild><Button variant='ghost'>Fecalysis</Button></Select.Item>
+                                        <Select.Item value='Urinalysis' asChild><Button variant='ghost'>Urinalysis</Button></Select.Item>
+                                        <Select.Item value='Fasting Blood Sugar' asChild><Button variant='ghost'>Fasting Blood Sugar</Button></Select.Item>
+                                        <Select.Item value='Random Blood Sugar' asChild><Button variant='ghost'>Random Blood Sugar</Button></Select.Item>
+                                        <Select.Item value='Sodium, Potassium, Chloride, Calcium' asChild><Button variant='ghost'>Sodium, Potassium, Chloride, Calcium</Button></Select.Item>
+                                        <Select.Item value='Sodium and Potassium' asChild><Button variant='ghost'>Sodium and Potassium</Button></Select.Item>
+                                        <Select.Item value='Calcium' asChild><Button variant='ghost'>Calcium</Button></Select.Item>
+                                        <Select.Item value='Chloride' asChild><Button variant='ghost'>Chloride</Button></Select.Item>
+                                        <Select.Item value='Lithium' asChild><Button variant='ghost'>Lithium</Button></Select.Item>
+                                        <Select.Item value='SGPT' asChild><Button variant='ghost'>SGPT</Button></Select.Item>
+                                        <Select.Item value='SGOT' asChild><Button variant='ghost'>SGOT</Button></Select.Item>
+                                        <Select.Item value='HBA1C' asChild><Button variant='ghost'>HBA1C</Button></Select.Item>
+                                        <Select.Item value='Serum Uric Acid' asChild><Button variant='ghost'>Serum Uric Acid</Button></Select.Item>
+                                        <Select.Item value='Creatinine' asChild><Button variant='ghost'>Creatinine</Button></Select.Item>
+                                        <Select.Item value='Anti-Hav IgG Ig' asChild><Button variant='ghost'>Anti-Hav IgG Ig</Button></Select.Item>
 
                                     </Select.Group>
                                 </Card>

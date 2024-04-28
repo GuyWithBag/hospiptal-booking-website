@@ -8,6 +8,8 @@ import { db } from '../../firebase'
 // Old patient: name, contact no. 
 // New patient: name, age, sex, address, contact no. and complain
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
+import ServicesForm from '../services-form';
+import DateTimeForm from '../date-time-form';
 
 {/* <AlertDialog.Root>
 <AlertDialog.Trigger />
@@ -25,28 +27,43 @@ import * as AlertDialog from '@radix-ui/react-alert-dialog';
 
 const NewPatientForm = () => {
 
-  const [openDialog, setOpenDialog] = useState(false)
-
+  const [openServicesForm, setOpenServicesForm] = useState(false)
+  const [openDateTimeForm, setOpenDateTimeForm] = useState(false)
+  const [chosenService, setChosenService] = useState('')
+  const [chosenDate, setChosenDate] = useState('')
 
   const submitForm = async (e: any) => {
     const data = Object.fromEntries(new FormData(e.currentTarget))
 
     e.preventDefault()
     // alert('asdas')
-    setOpenDialog(true)
+    setOpenServicesForm(true)
     await addDoc(
       collection(db, 'patients'),
       data
     )
   }
 
+  const onValueChange = (value: string) => {
+    setChosenService(value)
+
+    setOpenDateTimeForm(true)
+  }
+
+  const onChosenDate = (e: any) => {
+    const data = Object.fromEntries(new FormData(e.currentTarget))
+    console.log(data)
+    alert(data)
+    // setChosenDate()
+  }
+
   return (
     <>
-      <AlertDialog.Root open={openDialog} onOpenChange={setOpenDialog}>
+      {/* <AlertDialog.Root open={openDialog} onOpenChange={setOpenServicesForm}>
         <AlertDialog.Portal>
           <Theme>
             <AlertDialog.Overlay className='AlertDialogOverlay' />
-            <AlertDialog.Content className='fixed top-[50%] right-[50%] translate-x-[50%] -translate-y-[50%]'>
+            <AlertDialog.Content className='dialog-position'>
               <Card>
                 <Flex direction={'column'} gap={'5'}>
                   <AlertDialog.Description asChild>
@@ -60,8 +77,11 @@ const NewPatientForm = () => {
             </AlertDialog.Content>
           </Theme>
         </AlertDialog.Portal>
-      </AlertDialog.Root>
-      <Card>
+      </AlertDialog.Root> */}
+      <DateTimeForm onOpenChange={setOpenDateTimeForm} open={openDateTimeForm} onSubmit={onChosenDate} />
+      <ServicesForm onOpenChange={setOpenServicesForm} open={openServicesForm} onValueChange={onValueChange} />
+
+      <Card className='w-72 absolute'>
         <Form.Root onSubmit={submitForm}>
           <Form.Field className="FormField" name="name">
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>

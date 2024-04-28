@@ -1,11 +1,16 @@
-import NewPatientForm from '@/components/new-patient-form'
-import { Flex } from '@radix-ui/themes'
+import Background from '@/components/background'
+import OldPatientForm from '@/components/old-patient-form'
+import { Box, Flex } from '@radix-ui/themes'
 import React from 'react'
 
 const page = () => {
     return (
         <Flex align={'center'} justify={'center'} className='h-screen'>
-            <NewPatientForm />
+            <Background />
+            <Box className="absolute">
+                <OldPatientForm />
+
+            </Box>
         </Flex>
     )
 }

@@ -1,3 +1,5 @@
+'use client'
+
 import { Card, Code, DataList, Flex, IconButton, Text } from '@radix-ui/themes'
 import Link from 'next/link';
 import React from 'react'
@@ -15,13 +17,17 @@ type Props = {
 
 const PatientInformation = ({ id, name, age, contact_no, address, sex, complains }: Props) => {
     return (
-        <Card>
-            <DataList.Root>
+        <Card size={'3'} className='w-96'>
+            <DataList.Root size={'2'}>
                 <DataList.Item>
-                    <DataList.Label minWidth="88px">ID</DataList.Label>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            ID
+                        </Text>
+                    </DataList.Label>
                     <DataList.Value>
                         <Flex align="center" gap="2">
-                            <Code variant="ghost">u_2J89JSA4GJ</Code>
+                            <Code variant="ghost">{id}</Code>
                             <IconButton
                                 size="1"
                                 aria-label="Copy value"
@@ -34,27 +40,47 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                     </DataList.Value>
                 </DataList.Item>
                 <DataList.Item>
-                    <DataList.Label minWidth="88px">Name</DataList.Label>
+                    <DataList.Label minWidth="88px"><Text weight={'medium'} className='text-[var(--accent-9)]'>Name</Text></DataList.Label>
                     <DataList.Value><Text>{name}</Text></DataList.Value>
                 </DataList.Item>
                 <DataList.Item>
-                    <DataList.Label minWidth="88px">Address</DataList.Label>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Address
+                        </Text>
+                    </DataList.Label>
                     <DataList.Value><Text>{address}</Text></DataList.Value>
                 </DataList.Item>
                 <DataList.Item>
-                    <DataList.Label minWidth="88px">Sex</DataList.Label>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Sex
+                        </Text>
+                    </DataList.Label>
                     <DataList.Value><Text>{sex}</Text></DataList.Value>
                 </DataList.Item>
                 <DataList.Item>
-                    <DataList.Label minWidth="88px">Contact No.</DataList.Label>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Contact No.
+                        </Text>
+                    </DataList.Label>
                     <DataList.Value><Text>{contact_no}</Text></DataList.Value>
                 </DataList.Item>
                 <DataList.Item>
-                    <DataList.Label minWidth="88px">Complains</DataList.Label>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Complains
+                        </Text>
+                    </DataList.Label>
                     <DataList.Value><Text>{complains}</Text></DataList.Value>
                 </DataList.Item>
                 <DataList.Item>
-                    <DataList.Label minWidth="88px">Age</DataList.Label>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Age
+                        </Text>
+                    </DataList.Label>
                     <DataList.Value><Text>{age}</Text></DataList.Value>
                 </DataList.Item>
 

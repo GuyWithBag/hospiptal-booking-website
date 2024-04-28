@@ -35,7 +35,7 @@ const PatientInformationList = () => {
         <Card>
             <Flex direction={'column'}>
                 {patients.map((value: FirebaseDocument) => (
-                    <PatientInformation {...value.data} />
+                    <PatientInformation key={value.id} id={value.id} {...value.data} />
                 ))}
             </Flex>
         </Card>
