@@ -1,21 +1,13 @@
 'use client'
 
+import { PatientModel } from '@/models/PatientModel';
 import { Card, Code, DataList, Flex, IconButton, Text } from '@radix-ui/themes'
 import Link from 'next/link';
 import React from 'react'
 import { FaRegCopy } from "react-icons/fa";
 
-type Props = {
-    id: string,
-    name: string,
-    age: number,
-    contact_no: number,
-    address: string,
-    sex: string,
-    complains: string
-}
 
-const PatientInformation = ({ id, name, age, contact_no, address, sex, complains }: Props) => {
+const PatientInformation = ({ id, name, age, contact_no, address, sex, complains, service, date }: PatientModel) => {
     return (
         <Card size={'3'} className='w-96'>
             <DataList.Root size={'2'}>
@@ -82,6 +74,22 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                         </Text>
                     </DataList.Label>
                     <DataList.Value><Text>{age}</Text></DataList.Value>
+                </DataList.Item>
+                <DataList.Item>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Date
+                        </Text>
+                    </DataList.Label>
+                    <DataList.Value><Text>{date}</Text></DataList.Value>
+                </DataList.Item>
+                <DataList.Item>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Service
+                        </Text>
+                    </DataList.Label>
+                    <DataList.Value><Text>{service}</Text></DataList.Value>
                 </DataList.Item>
 
             </DataList.Root>

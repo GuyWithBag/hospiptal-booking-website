@@ -31,29 +31,41 @@ const NewPatientForm = () => {
   const [openDateTimeForm, setOpenDateTimeForm] = useState(false)
   const [chosenService, setChosenService] = useState('')
   const [chosenDate, setChosenDate] = useState('')
+  const [patientForm, setPatientForm] = useState({})
 
-  const submitForm = async (e: any) => {
+  const submitForm = (e: any) => {
     const data = Object.fromEntries(new FormData(e.currentTarget))
 
     e.preventDefault()
     // alert('asdas')
     setOpenServicesForm(true)
-    await addDoc(
-      collection(db, 'patients'),
-      data
-    )
+
+    setPatientForm(data)
+
   }
 
   const onValueChange = (value: string) => {
     setChosenService(value)
-
+    setOpenServicesForm(false)
     setOpenDateTimeForm(true)
   }
 
-  const onChosenDate = (e: any) => {
+  const onChosenDate = async (e: any) => {
+    e.preventDefault()
     const data = Object.fromEntries(new FormData(e.currentTarget))
-    console.log(data)
-    alert(data)
+
+    let mergedData = {
+      service: chosenService,
+      ...data,
+      ...patientForm
+    }
+
+    console.log(mergedData)
+
+    await addDoc(
+      collection(db, 'patients'),
+      mergedData
+    )
     // setChosenDate()
   }
 

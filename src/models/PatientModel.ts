@@ -5,5 +5,7 @@ export type PatientModel = {
     contact_no: number,
     address: string,
     sex: string,
-    complains: string
+    complains: string,
+    service: string
+    date: string,
 }

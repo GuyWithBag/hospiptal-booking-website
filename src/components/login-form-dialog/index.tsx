@@ -24,12 +24,12 @@ const LoginFormDialog = ({ open, onOpenChange }: Props) => {
 
 
   const onSubmit = (e: any) => {
-
+    const router: NextRouter = useRouter()
 
     e.preventDefault()
     // alert('asd')
     // redirect('/patients-list')
-    // router.push('/patients-list')
+    router.push('/patients-list')
   }
 
   return (
