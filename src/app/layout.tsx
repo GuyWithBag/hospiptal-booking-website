@@ -42,7 +42,7 @@ export default function RootLayout({
           }}> */}
           <Navbar />
           {children}
-          <ThemePanel />
+          {/* <ThemePanel /> */}
           {/* </Box> */}
         </Theme>
       </body>
