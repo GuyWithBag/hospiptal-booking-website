@@ -15,7 +15,7 @@ export default function Home() {
           </Box>
         </Box>
 
-        <Section id="about-us">
+        <Section id="about-us" className="h-screen">
           <Flex align={'center'} justify={'center'} direction={'column'} className=" px-[20%]">
             <Text size={'8'} weight={'bold'} className="text-[var(--accent-9)]">About Us</Text>
             <br />

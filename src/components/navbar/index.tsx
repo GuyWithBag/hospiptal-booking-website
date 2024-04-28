@@ -28,27 +28,29 @@ const Navbar = () => {
                                     </Button>
                                 </NavigationMenu.Link>
                             </NavigationMenu.Item>
-                            <NavigationMenu.Item>
+                            {/* <NavigationMenu.Item>
                                 <Button variant='ghost'>
                                     <Text weight={'medium'} className='text-[var(--accent-9)]'>
                                         Our Services
                                     </Text>
                                 </Button>
-                            </NavigationMenu.Item>
+                            </NavigationMenu.Item> */}
                             <NavigationMenu.Item>
-                                <Button variant='ghost'>
-                                    <Text weight={'medium'} className='text-[var(--accent-9)]'>
-                                        About Us
-                                    </Text>
-                                </Button>
+                                <NavigationMenu.Link href='#about-us'>
+                                    <Button variant='ghost'>
+                                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                                            About Us
+                                        </Text>
+                                    </Button>
+                                </NavigationMenu.Link>
                             </NavigationMenu.Item>
-                            <NavigationMenu.Item>
+                            {/* <NavigationMenu.Item>
                                 <Button variant='ghost'>
                                     <Text weight={'medium'} className='text-[var(--accent-9)]'>
                                         Contacts
                                     </Text>
                                 </Button>
-                            </NavigationMenu.Item>
+                            </NavigationMenu.Item> */}
                         </Flex>
                     </Flex>
                 </NavigationMenu.List>

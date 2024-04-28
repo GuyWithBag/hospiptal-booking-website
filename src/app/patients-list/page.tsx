@@ -4,7 +4,7 @@ import { Box, Flex, Text } from '@radix-ui/themes'
 const page = () => {
 
     return (
-        <Box className='pt-16'>
+        <Box className=' pt-20'>
             <Flex gap={'5'} align={'center'} justify={'start'} direction={'column'} className=' min-h-screen'>
                 <Text weight={'medium'} size={'8'}>Patients</Text>
                 <PatientInformationList />

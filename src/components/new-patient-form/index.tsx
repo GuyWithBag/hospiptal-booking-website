@@ -96,7 +96,7 @@ const NewPatientForm = () => {
       <Card className='w-72 absolute'>
         <Form.Root onSubmit={submitForm}>
           <Form.Field className="FormField" name="name">
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <Flex align={'baseline'} justify={'between'}>
               <Form.Label className="FormLabel">Name</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing" asChild>
                 <Text>Please enter your Name</Text>
@@ -104,43 +104,40 @@ const NewPatientForm = () => {
               <Form.Message className="FormMessage" match="typeMismatch" asChild>
                 <Text>Please provide a valid Name</Text>
               </Form.Message>
-            </div>
+            </Flex>
             <Form.Control asChild>
               <TextField.Root required />
             </Form.Control>
           </Form.Field>
 
           <Form.Field className={` FormField`} name="age">
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <Flex align={'baseline'} justify={'between'}>
               <Form.Label className="FormLabel">Age</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing" asChild>
                 <Text>Please enter your Age</Text>
               </Form.Message>
-              <Form.Message className="FormMessage" match="typeMismatch" asChild>
-                <Text>Please provide a valid Age</Text>
-              </Form.Message>
-            </div>
+            </Flex>
             <Form.Control asChild>
               <TextField.Root type='number' required />
             </Form.Control>
           </Form.Field>
 
           <Form.Field className={`FormField`} name="sex">
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <Flex align={'baseline'} justify={'between'}>
               <Form.Label className="FormLabel">Sex</Form.Label>
-            </div>
+            </Flex>
             <Form.Control asChild>
-              <RadioGroup.Root size="1" defaultValue="1" name='sex'>
+              <RadioGroup.Root size="1" defaultValue="Male" name='sex'>
                 <Flex direction={'row'} gap={'4'}>
-                  <RadioGroup.Item value="1" ><Text>Male</Text></RadioGroup.Item>
-                  <RadioGroup.Item value="2" ><Text>Female</Text></RadioGroup.Item>
+                  <RadioGroup.Item value="Male" ><Text>Male</Text></RadioGroup.Item>
+                  <RadioGroup.Item value="Female" ><Text>Female</Text></RadioGroup.Item>
                 </Flex>
               </RadioGroup.Root>
             </Form.Control>
           </Form.Field>
 
           <Form.Field className={`FormField`} name="address">
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <Flex align={'baseline'} justify={'between'}>
               <Form.Label className="FormLabel">Address</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing">
                 <Text>Please enter your address</Text>
@@ -148,14 +145,14 @@ const NewPatientForm = () => {
               <Form.Message className="FormMessage" match="typeMismatch">
                 <Text>Please provide a valid address</Text>
               </Form.Message>
-            </div>
+            </Flex>
             <Form.Control asChild>
               <TextField.Root type='text' required />
             </Form.Control>
           </Form.Field>
 
           <Form.Field className={`FormField`} name="contact-no.">
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <Flex align={'baseline'} justify={'between'}>
               <Form.Label className="FormLabel">Contact No.</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing">
                 <Text>Please enter your contact no.</Text>
@@ -168,16 +165,16 @@ const NewPatientForm = () => {
               }>
                 <Text>Please provide a valid contact no.</Text>
               </Form.Message>
-            </div>
+            </Flex>
             <Form.Control asChild>
               <TextField.Root type='number' required />
             </Form.Control>
           </Form.Field>
 
           {/* <Form.Field className="FormField" name="complaints">
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+            <Flex align={'baseline'} justify={'between'}>
               <Form.Label className="FormLabel">Complaints</Form.Label>
-            </div>
+            </Flex>
             <Form.Control asChild>
               <TextArea placeholder='Type a complaint.' />
             </Form.Control>

@@ -4,8 +4,7 @@ import { Card, Theme, Text, TextField, Button, Flex } from '@radix-ui/themes'
 import React, { useEffect } from 'react'
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Form from '@radix-ui/react-form';
-import { NextRouter, useRouter } from 'next/router'
-import { redirect } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 type Props = {
   onOpenChange: (open: boolean) => void,
@@ -16,7 +15,7 @@ type Props = {
 const LoginFormDialog = ({ open, onOpenChange }: Props) => {
   const correctUser = 'guinmapang'
   const correctPass = 'clinic123'
-  // const router: NextRouter = useRouter()
+  const router = useRouter()
 
   useEffect(() => {
     // router.push('/patients-list')
@@ -24,7 +23,7 @@ const LoginFormDialog = ({ open, onOpenChange }: Props) => {
 
 
   const onSubmit = (e: any) => {
-    const router: NextRouter = useRouter()
+    // const router: NextRouter = useRouter()
 
     e.preventDefault()
     // alert('asd')
@@ -44,7 +43,7 @@ const LoginFormDialog = ({ open, onOpenChange }: Props) => {
               </Dialog.Title>
               <Form.Root onSubmit={onSubmit} method='POST'>
                 <Form.Field className="FormField" name="username">
-                  <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
+                  <Flex align={'baseline'} justify={'between'}>
                     <Form.Label className="FormLabel">Username</Form.Label>
                     <Form.Message className="FormMessage" match="valueMissing" asChild>
                       <Text>Please enter your Username</Text>
@@ -52,7 +51,7 @@ const LoginFormDialog = ({ open, onOpenChange }: Props) => {
                     <Form.Message className="FormMessage" match={(value, formData) => value !== correctUser} asChild>
                       <Text>Incorrect Username</Text>
                     </Form.Message>
-                  </div>
+                  </Flex>
                   <Form.Control asChild>
                     <TextField.Root required />
                   </Form.Control>

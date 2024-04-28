@@ -1,7 +1,7 @@
 'use client'
 
 import { PatientModel } from '@/models/PatientModel'
-import { Card, Flex } from '@radix-ui/themes'
+import { Box, Card, Flex, Text } from '@radix-ui/themes'
 import PatientInformation from '../patient-information'
 import { db } from '@/firebase'
 import { FirebaseDocument } from '@/models/FirebaseDocuments'
@@ -33,7 +33,10 @@ const PatientInformationList = () => {
 
     return (
         <Card>
-            <Flex direction={'column'}>
+            <Flex direction={'column'} justify={'center'}>
+                <Box className={`${patients.length == 0 ? 'hidden' : ''}`}>
+                    <Text>Patient List is empty. </Text>
+                </Box>
                 {patients.map((value: FirebaseDocument) => (
                     <PatientInformation key={value.id} id={value.id} {...value.data} />
                 ))}

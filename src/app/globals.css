@@ -30,6 +30,10 @@
     rgb(var(--background-start-rgb));
 } */
 
+:root {
+  scroll-behavior: smooth;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
