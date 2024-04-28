@@ -8,45 +8,71 @@ import { db } from '../../firebase'
 // Old patient: name, contact no. 
 // New patient: name, age, sex, address, contact no. and complain
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
+import DateTimeForm from '../date-time-form';
+import ServicesForm from '../services-form';
 
 
 const OldPatientForm = () => {
 
-    const [openDialog, setOpenDialog] = useState(false)
+    const [openServicesForm, setOpenServicesForm] = useState(false)
+    const [openDateTimeForm, setOpenDateTimeForm] = useState(false)
+    const [chosenService, setChosenService] = useState('')
+    const [patientForm, setPatientForm] = useState({})
 
 
-    const submitForm = async (e: any) => {
+    const submitForm = (e: any) => {
         const data = Object.fromEntries(new FormData(e.currentTarget))
 
         e.preventDefault()
         // alert('asdas')
-        await addDoc(
-            collection(db, 'items'),
-            data
-        )
+        setOpenServicesForm(true)
+
+        setPatientForm(data)
+
     }
+
+    const onValueChange = (value: string) => {
+        setChosenService(value)
+        setOpenServicesForm(false)
+        setOpenDateTimeForm(true)
+    }
+
+    const onChosenDate = async (e: any) => {
+        e.preventDefault()
+        const data = Object.fromEntries(new FormData(e.currentTarget))
+
+        let mergedData = {
+            service: chosenService,
+            ...data,
+            ...patientForm
+        }
+
+        console.log(mergedData)
+
+        await addDoc(
+            collection(db, 'patients'),
+            mergedData
+        )
+        // setChosenDate()
+    }
+
+
+    // const submitForm = async (e: any) => {
+    //     const data = Object.fromEntries(new FormData(e.currentTarget))
+
+    //     e.preventDefault()
+    //     // alert('asdas')
+    //     await addDoc(
+    //         collection(db, 'items'),
+    //         data
+    //     )
+    // }
 
     return (
         <>
-            <AlertDialog.Root open={openDialog} onOpenChange={setOpenDialog}>
-                <AlertDialog.Portal>
-                    <Theme>
-                        <AlertDialog.Overlay className='AlertDialogOverlay' />
-                        <AlertDialog.Content className='fixed top-[50%] right-[50%] translate-x-[50%] -translate-y-[50%]'>
-                            <Card>
-                                <Flex direction={'column'} gap={'5'}>
-                                    <AlertDialog.Description asChild>
-                                        <Text>Form succesfully submitted. </Text>
-                                    </AlertDialog.Description>
-                                    <AlertDialog.Cancel asChild className=' ml-auto'>
-                                        <Button>Close</Button>
-                                    </AlertDialog.Cancel>
-                                </Flex>
-                            </Card>
-                        </AlertDialog.Content>
-                    </Theme>
-                </AlertDialog.Portal>
-            </AlertDialog.Root>
+            <DateTimeForm onOpenChange={setOpenDateTimeForm} open={openDateTimeForm} onSubmit={onChosenDate} />
+            <ServicesForm onOpenChange={setOpenServicesForm} open={openServicesForm} onValueChange={onValueChange} />
+
             <Card>
                 <Form.Root onSubmit={submitForm}>
                     <Form.Field className="FormField" name="name">
