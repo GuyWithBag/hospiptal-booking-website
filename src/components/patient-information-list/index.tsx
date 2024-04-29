@@ -31,11 +31,15 @@ const PatientInformationList = () => {
         })
     }, [])
 
+    console.log(patients.length > 0 ? 'hidden' : 'wala')
+
+
+
     return (
         <Card>
             <Flex direction={'column'} justify={'center'}>
-                <Box className={`${patients.length == 0 ? 'hidden' : ''}`}>
-                    <Text>Patient List is empty. </Text>
+                <Box display={`${patients.length > 0 ? 'none' : 'block'}`}>
+                    <Text weight={'bold'}>Patient List is empty. </Text>
                 </Box>
                 {patients.map((value: FirebaseDocument) => (
                     <PatientInformation key={value.id} id={value.id} {...value.data} />

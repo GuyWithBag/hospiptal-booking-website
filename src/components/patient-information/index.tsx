@@ -9,8 +9,8 @@ import { FaRegCopy } from "react-icons/fa";
 
 const PatientInformation = ({ id, name, age, contact_no, address, sex, complains, service, date }: PatientModel) => {
     return (
-        <Card size={'3'} className='w-96'>
-            <DataList.Root size={'2'}>
+        <Card size={{ lg: '3', md: '2', sm: '1' }} className='w-96'>
+            <DataList.Root size={{ lg: '2', md: '1' }}>
                 <DataList.Item>
                     <DataList.Label minWidth="88px">
                         <Text weight={'medium'} className='text-[var(--accent-9)]'>
