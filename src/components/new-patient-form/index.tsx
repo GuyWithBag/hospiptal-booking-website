@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import * as Form from '@radix-ui/react-form';
-import { Button, Card, Flex, RadioGroup, TextField, Theme, Text } from '@radix-ui/themes';
+import { Button, Card, Flex, RadioGroup, TextField, Theme, Text, TextArea } from '@radix-ui/themes';
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../../firebase'
 // Old patient: name, contact no. 
@@ -157,7 +157,7 @@ const NewPatientForm = () => {
             </Form.Control>
           </Form.Field>
 
-          <Form.Field className={`FormField`} name="contact-no.">
+          <Form.Field className={`FormField`} name="contact_no.">
             <Flex align={'baseline'} justify={'between'}>
               <Form.Label className="FormLabel">Contact No.</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing">
@@ -177,14 +177,14 @@ const NewPatientForm = () => {
             </Form.Control>
           </Form.Field>
 
-          {/* <Form.Field className="FormField" name="complaints">
+          <Form.Field className="FormField" name="complains">
             <Flex align={'baseline'} justify={'between'}>
-              <Form.Label className="FormLabel">Complaints</Form.Label>
+              <Form.Label className="FormLabel">Complains</Form.Label>
             </Flex>
             <Form.Control asChild>
               <TextArea placeholder='Type a complaint.' />
             </Form.Control>
-          </Form.Field> */}
+          </Form.Field>
           <Form.Submit asChild>
             <Button>
               Submit
