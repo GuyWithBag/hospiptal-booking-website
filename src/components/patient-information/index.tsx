@@ -8,10 +8,12 @@ import { FaRegCopy } from "react-icons/fa";
 
 //max-md:bg-red-400 max-sm:bg-blue-400 max-xl:bg-green-400
 
-const PatientInformation = ({ id, name, age, contact_no, address, sex, complains, service, date, time, timeBooked, dateBooked }: PatientModel) => {
+const PatientInformation = ({ id, name, age, contact_no, address, sex, complains, service, date, time, timeBooked, dateBooked, type }: PatientModel) => {
     return (
-        <Card size={{ lg: '3', md: '2', sm: '1' }} className='max-xl:w-96 max-sm:w-auto '>
+        <Card size={{ lg: '3', md: '2', sm: '1' }} className='md:w-[30rem] max-sm:w-auto '>
             <DataList.Root size={{ lg: '2', md: '1' }}>
+                {/* <Flex direction={'column'} align={'center'} justify={'between'}> */}
+
                 <DataList.Item>
                     <DataList.Label minWidth="88px">
                         <Text weight={'medium'} className='text-[var(--accent-9)]'>
@@ -36,6 +38,14 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                 <DataList.Item>
                     <DataList.Label minWidth="88px"><Text weight={'medium'} className='text-[var(--accent-9)]'>Name</Text></DataList.Label>
                     <DataList.Value><Text>{name}</Text></DataList.Value>
+                </DataList.Item>
+                <DataList.Item>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Type
+                        </Text>
+                    </DataList.Label>
+                    <DataList.Value><Text>{type}</Text></DataList.Value>
                 </DataList.Item>
                 <DataList.Item className={`${sex == undefined ? 'hidden' : ''}`}>
                     <DataList.Label minWidth="88px">
@@ -117,6 +127,7 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                     </DataList.Label>
                     <DataList.Value><Text>{timeBooked}</Text></DataList.Value>
                 </DataList.Item>
+                {/* </Flex> */}
             </DataList.Root>
         </Card>
     )

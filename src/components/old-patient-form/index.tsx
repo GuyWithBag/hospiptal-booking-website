@@ -44,6 +44,7 @@ const OldPatientForm = () => {
 
         let mergedData = {
             service: chosenService,
+            type: 'old-patient',
             ...data,
             ...patientForm,
             dateBooked: new Date().toLocaleDateString(),

@@ -1,5 +1,6 @@
 export type PatientModel = {
     id: string,
+    type: string,
     name: string,
     age: number,
     contact_no: number,
@@ -10,5 +11,5 @@ export type PatientModel = {
     date: string,
     time: string,
     dateBooked: string,
-    timeBooked: string
+    timeBooked: string,
 }

@@ -59,6 +59,7 @@ const NewPatientForm = () => {
       service: chosenService,
       ...data,
       ...patientForm,
+      type: 'new-patient',
       dateBooked: new Date().toLocaleDateString(),
       timeBooked: new Date().toLocaleTimeString()
     }

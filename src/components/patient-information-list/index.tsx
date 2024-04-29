@@ -33,7 +33,7 @@ const PatientInformationList = () => {
 
     return (
         <Card>
-            <Flex direction={'column'} justify={'center'} gap={'2'}>
+            <Flex direction={'column-reverse'} justify={'center'} gap={'2'}>
                 <Box display={`${patients.length > 0 ? 'none' : 'block'}`}>
                     <Text weight={'bold'}>Patient List is empty. </Text>
                 </Box>
