@@ -8,5 +8,7 @@ export type PatientModel = {
     complains: string,
     service: string
     date: string,
-    time: string
+    time: string,
+    dateBooked: string,
+    timeBooked: string
 }

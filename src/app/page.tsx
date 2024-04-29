@@ -60,8 +60,8 @@ export default function Home() {
         <Section id="laboratory" className="h-screen">
           <Text size={'7'} weight={'bold'} className="text-[var(--accent-9)]" >Laboratory opens @6:30AM (Monday to Saturday)</Text>
           <Separator my="3" size="4" />
-          <Text size={'5'} weight={'bold'} className="text-[var(--accent-11)]" >Laboratory Prices as of January 3, 2022 - January 2, 2023</Text>
-          <Separator my="3" size="4" />
+          {/* <Text size={'5'} weight={'bold'} className="text-[var(--accent-11)]" >Laboratory Prices as of January 3, 2022 - January 2, 2023</Text> */}
+          {/* <Separator my="3" size="4" /> */}
 
           <Flex direction={'column'}>
             <Flex direction={'row'} justify={'between'}>

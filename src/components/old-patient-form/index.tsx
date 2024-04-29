@@ -45,7 +45,9 @@ const OldPatientForm = () => {
         let mergedData = {
             service: chosenService,
             ...data,
-            ...patientForm
+            ...patientForm,
+            dateBooked: new Date().toLocaleDateString(),
+            timeBooked: new Date().toLocaleTimeString()
         }
 
         console.log(mergedData)

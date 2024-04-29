@@ -58,10 +58,12 @@ const NewPatientForm = () => {
     let mergedData = {
       service: chosenService,
       ...data,
-      ...patientForm
+      ...patientForm,
+      dateBooked: new Date().toLocaleDateString(),
+      timeBooked: new Date().toLocaleTimeString()
     }
 
-    console.log(mergedData)
+    // console.log(mergedData)
 
     await addDoc(
       collection(db, 'patients'),
