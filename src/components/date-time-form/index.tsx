@@ -37,6 +37,18 @@ const DateTimeForm = ({ open, onOpenChange, onSubmit }: Props) => {
                                     </Form.Control>
                                 </Form.Field>
 
+                                <Form.Field className="FormField" name="time">
+                                    <Flex align={'baseline'} justify={'between'}>
+                                        <Form.Label className="FormLabel">Time</Form.Label>
+                                        <Form.Message className="FormMessage" match="valueMissing" asChild>
+                                            <Text>Please enter time</Text>
+                                        </Form.Message>
+                                    </Flex>
+                                    <Form.Control asChild>
+                                        <input type={'time'} />
+                                    </Form.Control>
+                                </Form.Field>
+
                                 <Flex className=' ml-auto' gap={'4'}>
                                     <Form.Submit asChild>
                                         <Button>Submit</Button>

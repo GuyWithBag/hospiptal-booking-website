@@ -8,7 +8,7 @@ import { FaRegCopy } from "react-icons/fa";
 
 //max-md:bg-red-400 max-sm:bg-blue-400 max-xl:bg-green-400
 
-const PatientInformation = ({ id, name, age, contact_no, address, sex, complains, service, date }: PatientModel) => {
+const PatientInformation = ({ id, name, age, contact_no, address, sex, complains, service, date, time }: PatientModel) => {
     return (
         <Card size={{ lg: '3', md: '2', sm: '1' }} className='max-xl:w-96 max-sm:w-auto '>
             <DataList.Root size={{ lg: '2', md: '1' }}>
@@ -26,6 +26,7 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                                 aria-label="Copy value"
                                 color="gray"
                                 variant="ghost"
+                                onClick={() => { navigator.clipboard.writeText(id) }}
                             >
                                 <FaRegCopy />
                             </IconButton>
@@ -91,6 +92,14 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                         </Text>
                     </DataList.Label>
                     <DataList.Value><Text>{service}</Text></DataList.Value>
+                </DataList.Item>
+                <DataList.Item>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Time
+                        </Text>
+                    </DataList.Label>
+                    <DataList.Value><Text>{time}</Text></DataList.Value>
                 </DataList.Item>
 
             </DataList.Root>

@@ -8,4 +8,5 @@ export type PatientModel = {
     complains: string,
     service: string
     date: string,
+    time: string
 }

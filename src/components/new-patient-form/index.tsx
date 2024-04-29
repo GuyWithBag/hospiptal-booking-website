@@ -157,7 +157,7 @@ const NewPatientForm = () => {
             </Form.Control>
           </Form.Field>
 
-          <Form.Field className={`FormField`} name="contact_no.">
+          <Form.Field className={`FormField`} name="contact_no">
             <Flex align={'baseline'} justify={'between'}>
               <Form.Label className="FormLabel">Contact No.</Form.Label>
               <Form.Message className="FormMessage" match="valueMissing">
