@@ -32,8 +32,9 @@ const ServicesForm = ({ open, onOpenChange, onValueChange }: Props) => {
                             <Card className=' p-5'>
                                 <Flex direction={'column'} gap={'3'}>
                                     {/* <Button onClick={() => { setOpenSelect(true) }} variant='surface'>Services</Button> */}
-                                    <Text>Our Services: Please pick one</Text>
+                                    <Text>Our Services: Please choose one</Text>
                                     <Flex direction={'column'}>
+                                        <Button variant='ghost' onClick={() => { onSelected('Checkup') }}>Checkup</Button>
                                         <Button variant='ghost' onClick={() => { onSelected('Blood Typing') }}>Blood Typing</Button>
                                         <Button variant='ghost' onClick={() => { onSelected('CBC with Platelet') }}>CBC with Platelet</Button>
                                         <Button variant='ghost' onClick={() => { onSelected('Lipid Profile') }}>Lipid Profile</Button>
