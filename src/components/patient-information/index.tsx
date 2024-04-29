@@ -37,7 +37,7 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                     <DataList.Label minWidth="88px"><Text weight={'medium'} className='text-[var(--accent-9)]'>Name</Text></DataList.Label>
                     <DataList.Value><Text>{name}</Text></DataList.Value>
                 </DataList.Item>
-                <DataList.Item>
+                <DataList.Item className={`${sex == undefined ? 'hidden' : ''}`}>
                     <DataList.Label minWidth="88px">
                         <Text weight={'medium'} className='text-[var(--accent-9)]'>
                             Address
@@ -45,7 +45,7 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                     </DataList.Label>
                     <DataList.Value><Text>{address}</Text></DataList.Value>
                 </DataList.Item>
-                <DataList.Item>
+                <DataList.Item className={`${sex == undefined ? 'hidden' : ''}`}>
                     <DataList.Label minWidth="88px">
                         <Text weight={'medium'} className='text-[var(--accent-9)]'>
                             Sex
@@ -61,7 +61,7 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                     </DataList.Label>
                     <DataList.Value><Text>{contact_no}</Text></DataList.Value>
                 </DataList.Item>
-                <DataList.Item>
+                <DataList.Item className={`${sex == undefined ? 'hidden' : ''}`}>
                     <DataList.Label minWidth="88px">
                         <Text weight={'medium'} className='text-[var(--accent-9)]'>
                             Complains
@@ -69,7 +69,7 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                     </DataList.Label>
                     <DataList.Value><Text>{complains}</Text></DataList.Value>
                 </DataList.Item>
-                <DataList.Item>
+                <DataList.Item className={`${sex == undefined ? 'hidden' : ''}`}>
                     <DataList.Label minWidth="88px">
                         <Text weight={'medium'} className='text-[var(--accent-9)]'>
                             Age

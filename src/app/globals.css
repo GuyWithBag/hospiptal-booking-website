@@ -96,7 +96,7 @@ button {
   /* fixed top-[50%] right-[50%] translate-x-[50%] -translate-y-[50%]  */
   position: absolute  ;
   right: 50%;
-  bottom: 50%;
+  top: 400px;
   transform: translate(50%, -50%);
 }
 

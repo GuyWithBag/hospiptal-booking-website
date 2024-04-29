@@ -44,6 +44,15 @@ const Navbar = () => {
                                     </Button>
                                 </NavigationMenu.Link>
                             </NavigationMenu.Item>
+                            <NavigationMenu.Item>
+                                <NavigationMenu.Link href='#laboratory'>
+                                    <Button variant='ghost'>
+                                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                                            Laboratory
+                                        </Text>
+                                    </Button>
+                                </NavigationMenu.Link>
+                            </NavigationMenu.Item>
                             {/* <NavigationMenu.Item>
                                 <Button variant='ghost'>
                                     <Text weight={'medium'} className='text-[var(--accent-9)]'>

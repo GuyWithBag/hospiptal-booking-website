@@ -49,13 +49,14 @@ const OldPatientForm = () => {
         }
 
         console.log(mergedData)
-        setOpenAlert(true)
 
-        // await addDoc(
-        //     collection(db, 'patients'),
-        //     mergedData
-        // )
-        // setChosenDate()
+        await addDoc(
+            collection(db, 'patients'),
+            mergedData
+        )
+
+        setOpenDateTimeForm(false)
+        setOpenAlert(true)
     }
 
 
@@ -112,7 +113,7 @@ const OldPatientForm = () => {
                         </Form.Control>
                     </Form.Field>
 
-                    <Form.Field className={`FormField`} name="contact-no.">
+                    <Form.Field className={`FormField`} name="contact_no">
                         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between' }}>
                             <Form.Label className="FormLabel">Contact No.</Form.Label>
                             <Form.Message className="FormMessage" match="valueMissing">
