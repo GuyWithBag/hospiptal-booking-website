@@ -15,7 +15,7 @@ const Navbar = () => {
                                 <NavigationMenu.Link href='/'>
                                     <img className='object-contain h-10 ' src='hospital_logo.png' />
                                 </NavigationMenu.Link>
-                                <Text weight={'bold'} size={'6'} className='text-[var(--accent-9)]'>Guinmapang-Neri Medical Clinic and Laboratory</Text>
+                                <Text weight={'bold'} size={{ sm: '1', lg: '6' }} className='text-[var(--accent-9)]'>Guinmapang-Neri Medical Clinic and Laboratory</Text>
                             </Flex>
                         </NavigationMenu.Item>
                         <Flex gap={'5'} className=' ml-auto'>

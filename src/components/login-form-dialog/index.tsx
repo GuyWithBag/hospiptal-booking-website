@@ -32,12 +32,12 @@ const LoginFormDialog = ({ open, onOpenChange }: Props) => {
   }
 
   return (
-    <Dialog.Root onOpenChange={onOpenChange} open={open} >
+    <Dialog.Root onOpenChange={onOpenChange} open={open}>
       <Dialog.Portal>
         <Theme>
           <Dialog.Overlay className="DialogOverlay" />
           <Dialog.Content className='dialog-position'>
-            <Card className=' px-20 py-8'>
+            <Card className='popup max-md:px-10 md:px-20 py-8'>
               <Dialog.Title>
                 <Text weight={'bold'} className='text-[var(--accent-11)]'>Login here</Text>
               </Dialog.Title>

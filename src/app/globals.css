@@ -99,3 +99,17 @@ button {
   bottom: 50%;
   transform: translate(50%, -50%);
 }
+
+.popup{
+  animation: popup 0.7s;
+}
+
+@keyframes popup {
+  0%{
+    transform: scale(1);
+
+  }
+  100%{
+    transform: scale(1);
+  }
+}

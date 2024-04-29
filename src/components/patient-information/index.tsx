@@ -6,10 +6,11 @@ import Link from 'next/link';
 import React from 'react'
 import { FaRegCopy } from "react-icons/fa";
 
+//max-md:bg-red-400 max-sm:bg-blue-400 max-xl:bg-green-400
 
 const PatientInformation = ({ id, name, age, contact_no, address, sex, complains, service, date }: PatientModel) => {
     return (
-        <Card size={{ lg: '3', md: '2', sm: '1' }} className='w-96'>
+        <Card size={{ lg: '3', md: '2', sm: '1' }} className='max-xl:w-96 max-sm:w-auto '>
             <DataList.Root size={{ lg: '2', md: '1' }}>
                 <DataList.Item>
                     <DataList.Label minWidth="88px">

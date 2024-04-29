@@ -66,6 +66,8 @@ const NewPatientForm = () => {
       collection(db, 'patients'),
       mergedData
     )
+
+    setOpenDateTimeForm(false)
     // setChosenDate()
   }
 

@@ -31,10 +31,6 @@ const PatientInformationList = () => {
         })
     }, [])
 
-    console.log(patients.length > 0 ? 'hidden' : 'wala')
-
-
-
     return (
         <Card>
             <Flex direction={'column'} justify={'center'}>
