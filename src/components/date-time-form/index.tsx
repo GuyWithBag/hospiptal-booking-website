@@ -19,7 +19,7 @@ const DateTimeForm = ({ open, onOpenChange, onSubmit }: Props) => {
             <Dialog.Portal>
                 <Theme>
                     <Dialog.Overlay className="DialogOverlay" />
-                    <Dialog.Content className='dialog-position'>
+                    <Dialog.Content className='dialog-position popup'>
                         <Card className=' px-20 py-8'>
                             <Dialog.Title asChild>
                                 <Text weight={'bold'} className='text-[var(--accent-11)]'>Select A Date to Checkup</Text>

@@ -28,7 +28,7 @@ const ServicesForm = ({ open, onOpenChange, onValueChange }: Props) => {
                 <Dialog.Portal>
                     <Theme>
                         <Dialog.Overlay className="DialogOverlay" />
-                        <Dialog.Content className='dialog-position'>
+                        <Dialog.Content className='dialog-position popup'>
                             <Card className=' p-5'>
                                 <Flex direction={'column'} gap={'3'}>
                                     {/* <Button onClick={() => { setOpenSelect(true) }} variant='surface'>Services</Button> */}
