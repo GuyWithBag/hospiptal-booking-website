@@ -30,8 +30,9 @@ const NewPatientForm = () => {
   const [openServicesForm, setOpenServicesForm] = useState(false)
   const [openDateTimeForm, setOpenDateTimeForm] = useState(false)
   const [chosenService, setChosenService] = useState('')
-  const [chosenDate, setChosenDate] = useState('')
+  // const [chosenDate, setChosenDate] = useState('')
   const [patientForm, setPatientForm] = useState({})
+  const [openAlert, setOpenAlert] = useState(false)
 
   const submitForm = (e: any) => {
     const data = Object.fromEntries(new FormData(e.currentTarget))
@@ -68,20 +69,21 @@ const NewPatientForm = () => {
     )
 
     setOpenDateTimeForm(false)
+    setOpenAlert(true)
     // setChosenDate()
   }
 
   return (
     <>
-      {/* <AlertDialog.Root open={openDialog} onOpenChange={setOpenServicesForm}>
+      <AlertDialog.Root open={openAlert} onOpenChange={setOpenAlert}>
         <AlertDialog.Portal>
           <Theme>
             <AlertDialog.Overlay className='AlertDialogOverlay' />
-            <AlertDialog.Content className='dialog-position'>
+            <AlertDialog.Content className='dialog-position popup'>
               <Card>
                 <Flex direction={'column'} gap={'5'}>
                   <AlertDialog.Description asChild>
-                    <Text>Form succesfully submitted. </Text>
+                    <Text>Succesfully Booked!. </Text>
                   </AlertDialog.Description>
                   <AlertDialog.Cancel asChild className=' ml-auto'>
                     <Button>Close</Button>
@@ -91,7 +93,9 @@ const NewPatientForm = () => {
             </AlertDialog.Content>
           </Theme>
         </AlertDialog.Portal>
-      </AlertDialog.Root> */}
+      </AlertDialog.Root>
+
+
       <DateTimeForm onOpenChange={setOpenDateTimeForm} open={openDateTimeForm} onSubmit={onChosenDate} />
       <ServicesForm onOpenChange={setOpenServicesForm} open={openServicesForm} onValueChange={onValueChange} />
 

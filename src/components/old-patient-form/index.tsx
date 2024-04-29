@@ -18,6 +18,7 @@ const OldPatientForm = () => {
     const [openDateTimeForm, setOpenDateTimeForm] = useState(false)
     const [chosenService, setChosenService] = useState('')
     const [patientForm, setPatientForm] = useState({})
+    const [openAlert, setOpenAlert] = useState(false)
 
 
     const submitForm = (e: any) => {
@@ -48,11 +49,12 @@ const OldPatientForm = () => {
         }
 
         console.log(mergedData)
+        setOpenAlert(true)
 
-        await addDoc(
-            collection(db, 'patients'),
-            mergedData
-        )
+        // await addDoc(
+        //     collection(db, 'patients'),
+        //     mergedData
+        // )
         // setChosenDate()
     }
 
@@ -70,6 +72,26 @@ const OldPatientForm = () => {
 
     return (
         <>
+            <AlertDialog.Root open={openAlert} onOpenChange={setOpenAlert}>
+                <AlertDialog.Portal>
+                    <Theme>
+                        <AlertDialog.Overlay className='AlertDialogOverlay' />
+                        <AlertDialog.Content className='dialog-position popup'>
+                            <Card>
+                                <Flex direction={'column'} gap={'5'}>
+                                    <AlertDialog.Description asChild>
+                                        <Text>Succesfully Booked!. </Text>
+                                    </AlertDialog.Description>
+                                    <AlertDialog.Cancel asChild className=' ml-auto'>
+                                        <Button>Close</Button>
+                                    </AlertDialog.Cancel>
+                                </Flex>
+                            </Card>
+                        </AlertDialog.Content>
+                    </Theme>
+                </AlertDialog.Portal>
+            </AlertDialog.Root>
+
             <DateTimeForm onOpenChange={setOpenDateTimeForm} open={openDateTimeForm} onSubmit={onChosenDate} />
             <ServicesForm onOpenChange={setOpenServicesForm} open={openServicesForm} onValueChange={onValueChange} />
 
