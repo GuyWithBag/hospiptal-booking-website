@@ -50,6 +50,14 @@ export default function Home() {
               <Text size={'5'} weight={'bold'} className="text-[var(--accent-11)]" as="p">Disclaimer:</Text>
               <Text weight={'medium'} as="p">• Please be aware that using our online booking system only reserves a time window for your clinic appointment in advance. We still need to prioritize controlling the number of people within the clinic, so there is no guarantee that you will be able to enter at the precise time that you have selected.  First come, first served policy applies to this clinic.</Text>
               <Text weight={'medium'} as="p">• Note that the arrival of the doctor is 11:00am</Text>
+
+
+
+
+              <Text size={'5'} weight={'bold'} className="text-[var(--accent-11)]" as="p">Contact Information:</Text>
+              <Text weight={'medium'} as="p">guinmapangnerimedicalclinic@gmail.com</Text>
+              <Text weight={'medium'} as="p">#: 0950 030 3794</Text>
+
             </Flex>
 
 

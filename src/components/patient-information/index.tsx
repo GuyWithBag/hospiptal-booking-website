@@ -90,18 +90,18 @@ const PatientInformation = ({ id, name, age, contact_no, address, sex, complains
                 <DataList.Item>
                     <DataList.Label minWidth="88px">
                         <Text weight={'medium'} className='text-[var(--accent-9)]'>
-                            Date
-                        </Text>
-                    </DataList.Label>
-                    <DataList.Value><Text>{date}</Text></DataList.Value>
-                </DataList.Item>
-                <DataList.Item>
-                    <DataList.Label minWidth="88px">
-                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
                             Service
                         </Text>
                     </DataList.Label>
                     <DataList.Value><Text>{service}</Text></DataList.Value>
+                </DataList.Item>
+                <DataList.Item>
+                    <DataList.Label minWidth="88px">
+                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                            Date
+                        </Text>
+                    </DataList.Label>
+                    <DataList.Value><Text>{date}</Text></DataList.Value>
                 </DataList.Item>
                 <DataList.Item>
                     <DataList.Label minWidth="88px">
