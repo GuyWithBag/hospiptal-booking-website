@@ -53,6 +53,15 @@ const Navbar = () => {
                                     </Button>
                                 </NavigationMenu.Link>
                             </NavigationMenu.Item>
+                            <NavigationMenu.Item>
+                                <NavigationMenu.Link href='#contacts'>
+                                    <Button variant='ghost'>
+                                        <Text weight={'medium'} className='text-[var(--accent-9)]'>
+                                            Contact Us
+                                        </Text>
+                                    </Button>
+                                </NavigationMenu.Link>
+                            </NavigationMenu.Item>
                             {/* <NavigationMenu.Item>
                                 <Button variant='ghost'>
                                     <Text weight={'medium'} className='text-[var(--accent-9)]'>
