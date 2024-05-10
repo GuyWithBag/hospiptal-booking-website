@@ -3,25 +3,26 @@
 import { Button, Card, Flex, Text } from '@radix-ui/themes'
 import React from 'react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
+import HomePageDropDown from "@/components/home-page-dropdown";
 
 const Navbar = () => {
     return (
         <NavigationMenu.Root>
             <Card className=' absolute w-[100%] px-home shadow-md'>
                 <NavigationMenu.List>
-                    <Flex direction={'row'} align={'center'} className='w-[100%] h-12 py-2px-home' >
-                        <NavigationMenu.Item className=' mr-auto h-[100%] '>
-                            <Flex direction={'row'} align={'center'} gap={'3'}>
+                    <Flex direction={'row'} align={'center'} justify={'between'} className='w-[100%] h-12 py-2px-home' >
+                        <NavigationMenu.Item className=' h-[100%] '>
+                            <Flex direction={'row'} align={'center'} gap={'3'} className='h-[100%]'>
                                 <NavigationMenu.Link href='/'>
                                     <img className='object-contain h-10 ' src='hospital_logo.png' />
                                 </NavigationMenu.Link>
                                 <Text weight={'bold'} size={{ sm: '1', lg: '6' }} className='text-[var(--accent-9)]'>Guinmapang-Neri Medical Clinic and Laboratory</Text>
                             </Flex>
                         </NavigationMenu.Item>
-                        <Flex gap={'5'} className=' ml-auto'>
+                        <Flex align={'center'} direction={'row'} gap={'5'} className='h-[100%]'>
                             <NavigationMenu.Item>
                                 <NavigationMenu.Link href='/'>
-                                    <Button variant='ghost'>
+                                    <Button variant='ghost' className=''>
                                         <Text weight={'medium'} className='text-[var(--accent-9)]'>
                                             Home
                                         </Text>

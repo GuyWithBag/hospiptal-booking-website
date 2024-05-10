@@ -1,8 +1,6 @@
 import Background from "@/components/background";
-import HomePageDropDown from "@/components/home-page-dropdown";
 import { Box, Section, Flex, Text, Card, Separator } from "@radix-ui/themes";
 
-// TODO: FUCK ISAJDIOSJODISAIHDUAISHDISADIHIUH LEARN GRID!!!
 
 export default function Home() {
   return (
@@ -10,9 +8,9 @@ export default function Home() {
       <Flex direction={'column'} align={'center'} justify={'center'}>
         <Box className="h-screen w-[100%]">
           <Background />
-          <Box className="dialog-position-absolute">
+          {/* <Box className="dialog-position-absolute">
             <HomePageDropDown />
-          </Box>
+          </Box> */}
         </Box>
 
         <Section id="about-us" className="h-screen">
@@ -170,6 +168,12 @@ export default function Home() {
             <Text size={'7'} weight={'bold'} className="text-[var(--accent-11)]" as="p">Contact Us Here:</Text>
             <Text weight={'medium'} as="p">Email: guinmapangnerimedicalclinic@gmail.com</Text>
             <Text weight={'medium'} as="p">Phone number: 0950 030 3794</Text>
+          </Flex>
+        </Section>
+        <Separator my="3" size="4" />
+        <Section id="contacts" className="">
+          <Flex align={'center'} justify={'start'} direction={'column'} className="w-[100%]">
+            <Text className="" as="p">©Guinmapang-Neri Medical Clinic 2024</Text>
           </Flex>
         </Section>
         <Separator my="3" size="4" />

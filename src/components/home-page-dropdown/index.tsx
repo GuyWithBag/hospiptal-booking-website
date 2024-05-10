@@ -18,40 +18,38 @@ const HomePageDropDown = () => {
     return (
         <>
             <LoginFormDialog open={showLoginFormDialog} onOpenChange={setShowLoginFormDialog} />
-            <Card size={'5'} className='flex items-center h-72 shadow-lg'>
-                <DropdownMenu.Root>
-                    <DropdownMenu.Trigger className=' w-40' asChild>
-                        <Button>
-                            Book here
-                        </Button>
-                    </DropdownMenu.Trigger>
-                    <DropdownMenu.Portal>
-                        <Theme>
-                            <DropdownMenu.Content className='w-40 bg-white shadow-lg px-7 py-2 gap-3' sideOffset={5}>
-                                <DropdownMenu.Item>
-                                    <Link href={'/new-patient'}>
-                                        <Button variant='ghost'>
-                                            New Patient
-                                        </Button>
-                                    </Link>
-                                </DropdownMenu.Item>
-                                <DropdownMenu.Item>
-                                    <Link href={'/old-patient'}>
-                                        <Button variant='ghost'>
-                                            Old Patient
-                                        </Button>
-                                    </Link>
-                                </DropdownMenu.Item>
-                                <DropdownMenu.Item>
-                                    <Button variant='ghost' onClick={onSecretaryClick}>
-                                        Secretary
+            <DropdownMenu.Root>
+                <DropdownMenu.Trigger className=' w-40' asChild>
+                    <Button>
+                        Book here
+                    </Button>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Portal>
+                    <Theme>
+                        <DropdownMenu.Content className='w-40 bg-white shadow-lg px-7 py-2 gap-3' sideOffset={5}>
+                            <DropdownMenu.Item>
+                                <Link href={'/new-patient'}>
+                                    <Button variant='ghost'>
+                                        New Patient
                                     </Button>
-                                </DropdownMenu.Item>
-                            </DropdownMenu.Content>
-                        </Theme>
-                    </DropdownMenu.Portal>
-                </DropdownMenu.Root>
-            </Card>
+                                </Link>
+                            </DropdownMenu.Item>
+                            <DropdownMenu.Item>
+                                <Link href={'/old-patient'}>
+                                    <Button variant='ghost'>
+                                        Old Patient
+                                    </Button>
+                                </Link>
+                            </DropdownMenu.Item>
+                            <DropdownMenu.Item>
+                                <Button variant='ghost' onClick={onSecretaryClick}>
+                                    Secretary
+                                </Button>
+                            </DropdownMenu.Item>
+                        </DropdownMenu.Content>
+                    </Theme>
+                </DropdownMenu.Portal>
+            </DropdownMenu.Root>
         </>
     )
 }

@@ -1,11 +1,12 @@
 'use client'
-import { Box, Card, Flex, Text, Button } from '@radix-ui/themes';
+import { Box, Card, Flex, Text, Button, IconButton } from '@radix-ui/themes';
 import PatientInformation from '../patient-information';
 import { db } from '@/firebase';
 import { FirebaseDocument } from '@/models/FirebaseDocuments';
 import { collection, onSnapshot, query, orderBy, deleteDoc, doc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { Cross1Icon } from '@radix-ui/react-icons';
+import * as Dialog from '@radix-ui/react-dialog';
 
 const PatientInformationList = () => {
     const [patients, setPatients] = useState([] as Array<FirebaseDocument>);
@@ -57,22 +58,28 @@ const PatientInformationList = () => {
                 </Box>
                 {patients.map((value: FirebaseDocument) => (
                     <Box key={value.id} position="relative">
-                        <Flex gap="2" alignItems="center">
+                        <Flex gap="2" align={'center'}>
                             <PatientInformation {...value.data} />
-                            <Button onClick={() => handleOpenConfirmationDialog(value.id)} variant="icon" style={{ position: 'absolute', top: 0, right: 0 }}>
+                            <IconButton onClick={() => handleOpenConfirmationDialog(value.id)} style={{ position: 'absolute', top: 0, right: 0 }}>
                                 <Cross1Icon />
-                            </Button>
+                            </IconButton>
                         </Flex>
                     </Box>
                 ))}
             </Flex>
-            <Dialog open={!!deletePatientId} onOpenChange={handleCloseConfirmationDialog}>
-                <Box>
-                    <Text>Are you sure you want to delete this patient?</Text>
-                    <Button onClick={handleDelete}>Yes</Button>
-                    <Button onClick={handleCloseConfirmationDialog}>No</Button>
-                </Box>
-            </Dialog>
+            <Dialog.Root open={!!deletePatientId} onOpenChange={handleCloseConfirmationDialog}>
+                <Dialog.Portal>
+                    <Dialog.Title>
+                        <Text>Are you sure you want to delete this patient?</Text>
+                    </Dialog.Title>
+                    <Dialog.Close>
+                        <Button onClick={handleDelete}>Yes</Button>
+                    </Dialog.Close>
+                    <Dialog.Close>
+                        <Button onClick={handleCloseConfirmationDialog}>No</Button>
+                    </Dialog.Close>
+                </Dialog.Portal>
+            </Dialog.Root>
         </Card>
     );
 };
