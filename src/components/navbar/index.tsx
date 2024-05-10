@@ -3,7 +3,7 @@
 import { Button, Card, Flex, Text } from '@radix-ui/themes'
 import React from 'react'
 import * as NavigationMenu from '@radix-ui/react-navigation-menu';
-import HomePageDropDown from "@/components/home-page-dropdown";
+//import HomePageDropDown from "@/components/home-page-dropdown";
 
 const Navbar = () => {
     return (
