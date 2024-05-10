@@ -27,6 +27,14 @@ const PatientInformationList = () => {
         return () => unsubscribe(); // Cleanup function to unsubscribe from snapshot listener
     }, []);
 
+    const handleOpenConfirmationDialog = (patientId: string) => {
+        setDeletePatientId(patientId);
+    };
+
+    const handleCloseConfirmationDialog = () => {
+        setDeletePatientId(null);
+    };
+
     const handleDelete = async () => {
         if (deletePatientId) {
             try {
@@ -40,14 +48,6 @@ const PatientInformationList = () => {
         }
     };
 
-    const handleOpenConfirmationDialog = (patientId: string) => {
-        setDeletePatientId(patientId);
-    };
-
-    const handleCloseConfirmationDialog = () => {
-        setDeletePatientId(null);
-    };
-
     return (
         <Card>
             <Flex direction={'column'} justify={'center'} gap={'2'}>
@@ -55,12 +55,14 @@ const PatientInformationList = () => {
                     <Text weight={'bold'}>Patient List is empty. </Text>
                 </Box>
                 {patients.map((value: FirebaseDocument) => (
-                    <Flex key={value.id} gap="2" alignItems="center">
-                        <PatientInformation {...value.data} />
-                        <Button onClick={() => handleOpenConfirmationDialog(value.id)} variant="icon">
-                            <Cross1Icon />
-                        </Button>
-                    </Flex>
+                    <Box key={value.id} position="relative">
+                        <Flex gap="2" alignItems="center">
+                            <PatientInformation {...value.data} />
+                            <Button onClick={() => handleOpenConfirmationDialog(value.id)} variant="icon" style={{ position: 'absolute', top: 0, right: 0 }}>
+                                <Cross1Icon />
+                            </Button>
+                        </Flex>
+                    </Box>
                 ))}
             </Flex>
             <Dialog open={!!deletePatientId} onOpenChange={handleCloseConfirmationDialog}>
