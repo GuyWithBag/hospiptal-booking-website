@@ -1,5 +1,5 @@
 'use client'
-import { Box, Card, Flex, Text, Button, IconButton } from '@radix-ui/themes';
+import { Box, Card, Flex, Text, Button, IconButton, Theme } from '@radix-ui/themes';
 import PatientInformation from '../patient-information';
 import { db } from '@/firebase';
 import { FirebaseDocument } from '@/models/FirebaseDocuments';
@@ -11,6 +11,7 @@ import * as Dialog from '@radix-ui/react-dialog';
 const PatientInformationList = () => {
     const [patients, setPatients] = useState([] as Array<FirebaseDocument>);
     const [deletePatientId, setDeletePatientId] = useState<string | null>(null);
+    const [openDialog, setOpenDialog] = useState(false)
 
     useEffect(() => {
         const q = query(collection(db, 'patients')); // Order by 'createdAt' in ascending order
@@ -46,7 +47,7 @@ const PatientInformationList = () => {
             try {
                 await deleteDoc(doc(db, 'patients', deletePatientId));
                 // Remove the deleted patient from the state
-                setPatients(prevPatients => prevPatients.filter(patient => patient.id !== deletePatientId));
+                // setPatients(prevPatients => prevPatients.filter(patient => patient.id !== deletePatientId));
                 setDeletePatientId(null); // Reset deletePatientId after successful deletion
             } catch (error) {
                 console.error('Error deleting patient:', error);
@@ -64,24 +65,34 @@ const PatientInformationList = () => {
                     <Box key={value.id} position="relative">
                         <Flex gap="2" align={'center'}>
                             <PatientInformation {...value.data} id={value.id} />
-                            <IconButton onClick={() => handleOpenConfirmationDialog(value.id)} style={{ position: 'absolute', top: 0, right: 0 }}>
+                            <IconButton onClick={() => {
+                                setDeletePatientId(value.id)
+                                setOpenDialog(true)
+                            }} style={{ position: 'absolute', top: 0, right: 0 }}>
                                 <Cross1Icon />
                             </IconButton>
                         </Flex>
                     </Box>
                 ))}
             </Flex>
-            <Dialog.Root open={!!deletePatientId} onOpenChange={handleCloseConfirmationDialog}>
+            <Dialog.Root open={openDialog} onOpenChange={setOpenDialog}>
                 <Dialog.Portal>
-                    <Dialog.Title>
-                        <Text>Are you sure you want to delete this patient?</Text>
-                    </Dialog.Title>
-                    <Dialog.Close>
-                        <Button onClick={handleDelete}>Yes</Button>
-                    </Dialog.Close>
-                    <Dialog.Close>
-                        <Button onClick={handleCloseConfirmationDialog}>No</Button>
-                    </Dialog.Close>
+                    <Dialog.Overlay className="DialogOverlay" />
+                    <Dialog.Content className='dialog-position'>
+                        <Theme>
+                            <Card>
+                                <Dialog.Title>
+                                    <Text>Are you sure you want to delete this patient?</Text>
+                                </Dialog.Title>
+                                <Dialog.Close asChild>
+                                    <Button onClick={handleDelete}>Yes</Button>
+                                </Dialog.Close>
+                                <Dialog.Close asChild>
+                                    <Button>No</Button>
+                                </Dialog.Close>
+                            </Card>
+                        </Theme>
+                    </Dialog.Content>
                 </Dialog.Portal>
             </Dialog.Root>
         </Card>
