@@ -4,7 +4,7 @@ import { Card, Theme, Text, TextField, Button, Flex } from '@radix-ui/themes'
 import React, { useEffect } from 'react'
 import * as Dialog from '@radix-ui/react-dialog';
 import * as Form from '@radix-ui/react-form';
-import { redirect, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 type Props = {
   onOpenChange: (open: boolean) => void,
@@ -25,6 +25,7 @@ const LoginFormDialog = ({ open, onOpenChange }: Props) => {
     // alert('asd')
     // redirect('/patients-list')
     router.push('/patients-list')
+    onOpenChange(false)
   }
 
   return (
@@ -69,11 +70,9 @@ const LoginFormDialog = ({ open, onOpenChange }: Props) => {
                 </Form.Field>
 
                 <Flex className=' ml-auto' gap={'4'}>
-                  <Dialog.Close asChild>
-                    <Form.Submit asChild>
-                      <Button>Login</Button>
-                    </Form.Submit>
-                  </Dialog.Close>
+                  <Form.Submit asChild>
+                    <Button>Login</Button>
+                  </Form.Submit>
 
                   <Dialog.Close asChild>
                     <Button>Close</Button>

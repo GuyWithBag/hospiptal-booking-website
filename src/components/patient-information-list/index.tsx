@@ -13,7 +13,7 @@ const PatientInformationList = () => {
     const [deletePatientId, setDeletePatientId] = useState<string | null>(null);
 
     useEffect(() => {
-        const q = query(collection(db, 'patients'), orderBy('createdAt', 'asc')); // Order by 'createdAt' in ascending order
+        const q = query(collection(db, 'patients')); // Order by 'createdAt' in ascending order
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let arr: Array<FirebaseDocument> = [];
 
@@ -23,6 +23,11 @@ const PatientInformationList = () => {
                     id: doc.id
                 } as FirebaseDocument);
             });
+            arr.sort(
+                (a, b) => {
+                    return a.data.timeBooked.localeCompare(b.data.timeBooked);
+                }
+            )
             setPatients(arr);
         });
 
