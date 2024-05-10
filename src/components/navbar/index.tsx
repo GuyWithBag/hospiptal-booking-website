@@ -69,6 +69,7 @@ const Navbar = () => {
                                     </Text>
                                 </Button>
                             </NavigationMenu.Item> */}
+                            <HomePageDropDown />
                         </Flex>
                     </Flex>
                 </NavigationMenu.List>
