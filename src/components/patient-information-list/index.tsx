@@ -1,3 +1,4 @@
+'use client'
 import { Box, Card, Flex, Text, Button } from '@radix-ui/themes';
 import PatientInformation from '../patient-information';
 import { db } from '@/firebase';
