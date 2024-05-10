@@ -23,10 +23,9 @@ const PatientInformationList = () => {
                     id: doc.id
                 } as FirebaseDocument);
             });
+            console.log(arr)
             arr.sort(
-                (a, b) => {
-                    return a.data.timeBooked.localeCompare(b.data.timeBooked);
-                }
+                (a, b) => new Date(`${a.data.dateBooked} ${a.data.timeBooked}`).getTime() - new Date(`${b.data.dateBooked} ${b.data.timeBooked}`).getTime()
             )
             setPatients(arr);
         });
@@ -57,14 +56,14 @@ const PatientInformationList = () => {
 
     return (
         <Card>
-            <Flex direction={'column'} justify={'center'} gap={'2'}>
+            <Flex direction={'column-reverse'} justify={'center'} gap={'2'}>
                 <Box display={`${patients.length === 0 ? 'block' : 'none'}`}>
                     <Text weight={'bold'}>Patient List is empty. </Text>
                 </Box>
                 {patients.map((value: FirebaseDocument) => (
                     <Box key={value.id} position="relative">
                         <Flex gap="2" align={'center'}>
-                            <PatientInformation {...value.data} />
+                            <PatientInformation {...value.data} id={value.id} />
                             <IconButton onClick={() => handleOpenConfirmationDialog(value.id)} style={{ position: 'absolute', top: 0, right: 0 }}>
                                 <Cross1Icon />
                             </IconButton>
