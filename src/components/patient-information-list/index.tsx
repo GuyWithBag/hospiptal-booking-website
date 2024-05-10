@@ -1,11 +1,9 @@
-'use client'
-
 import { PatientModel } from '@/models/PatientModel'
 import { Box, Card, Flex, Text } from '@radix-ui/themes'
 import PatientInformation from '../patient-information'
 import { db } from '@/firebase'
 import { FirebaseDocument } from '@/models/FirebaseDocuments'
-import { collection, onSnapshot, query } from 'firebase/firestore'
+import { collection, onSnapshot, query, orderBy, Timestamp } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 
 const PatientInformationList = () => {
@@ -13,12 +11,11 @@ const PatientInformationList = () => {
     const [patients, setPatients] = useState([] as Array<FirebaseDocument>)
 
     useEffect(() => {
-        const q = query(collection(db, 'patients'))
+        const q = query(collection(db, 'patients'), orderBy('createdAt', 'asc')); // Assuming createdAt is the timestamp field
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let arr: Array<FirebaseDocument> = []
 
             querySnapshot.forEach(doc => {
-                // console.log(doc.data())
                 arr.push(
                     {
                         data: doc.data(),
@@ -27,7 +24,6 @@ const PatientInformationList = () => {
                 )
             });
             setPatients(arr)
-            // console.log(arr[0].data)
         })
     }, [])
 
