@@ -17,10 +17,6 @@ const LoginFormDialog = ({ open, onOpenChange }: Props) => {
   const correctPass = 'clinic123'
   const router = useRouter()
 
-  useEffect(() => {
-    // router.push('/patients-list')
-  }, [])
-
 
   const onSubmit = (e: any) => {
     // const router: NextRouter = useRouter()
@@ -73,9 +69,11 @@ const LoginFormDialog = ({ open, onOpenChange }: Props) => {
                 </Form.Field>
 
                 <Flex className=' ml-auto' gap={'4'}>
-                  <Form.Submit asChild>
-                    <Button>Login</Button>
-                  </Form.Submit>
+                  <Dialog.Close asChild>
+                    <Form.Submit asChild>
+                      <Button>Login</Button>
+                    </Form.Submit>
+                  </Dialog.Close>
 
                   <Dialog.Close asChild>
                     <Button>Close</Button>

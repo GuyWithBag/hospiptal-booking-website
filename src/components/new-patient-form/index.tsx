@@ -10,6 +10,7 @@ import { db } from '../../firebase'
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import ServicesForm from '../services-form';
 import DateTimeForm from '../date-time-form';
+import { useRouter } from 'next/navigation';
 
 {/* <AlertDialog.Root>
 <AlertDialog.Trigger />
@@ -33,6 +34,7 @@ const NewPatientForm = () => {
   // const [chosenDate, setChosenDate] = useState('')
   const [patientForm, setPatientForm] = useState({})
   const [openAlert, setOpenAlert] = useState(false)
+  const router = useRouter()
 
   const submitForm = (e: any) => {
     const data = Object.fromEntries(new FormData(e.currentTarget))
@@ -76,6 +78,10 @@ const NewPatientForm = () => {
     // setChosenDate()
   }
 
+  const onSuccesfullyBooked = () => {
+    router.push('/')
+  }
+
   return (
     <>
       <AlertDialog.Root open={openAlert} onOpenChange={setOpenAlert}>
@@ -89,7 +95,7 @@ const NewPatientForm = () => {
                     <Text>Succesfully Booked!. </Text>
                   </AlertDialog.Description>
                   <AlertDialog.Cancel asChild className=' ml-auto'>
-                    <Button>Close</Button>
+                    <Button onClick={onSuccesfullyBooked}>Close</Button>
                   </AlertDialog.Cancel>
                 </Flex>
               </Card>
